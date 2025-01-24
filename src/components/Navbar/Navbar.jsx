@@ -11,33 +11,33 @@ const Navbar = () => {
         {/* Logo  */}
         <div className="flex items-center">
           <NavLink to="/">
-            <img src="src/assets/logo.png" alt="Logo" className="h-10" />
+            <img src="src/assets/logo.png" alt="Logo" className="h-12" />
           </NavLink>
         </div>
 
         {/* Menu items (desktop view) */}
-        <div className="hidden md:flex items-center space-x-4">
-          <NavLink to="/" className="text-blackhover:text-gray-900">
+        <div className="hidden md:flex items-center space-x-8">
+          <NavLink to="/" className="text-black hover:text-gray-900">
             Home
           </NavLink>
-          <NavLink to="/products" className="text-blackhover:text-gray-900">
+          <NavLink to="/products" className="text-black hover:text-gray-900">
             Products
           </NavLink>
-          <NavLink to="/about" className="text-blackhover:text-gray-900">
+          <NavLink to="/about" className="text-black hover:text-gray-900">
             About
           </NavLink>
-          <NavLink to="/contact" className="text-blackhover:text-gray-900">
+          <NavLink to="/contact" className="text-black hover:text-gray-900">
             Contact
           </NavLink>
         </div>
 
         {/* Cart icon, sign button, and hamburger icon (always visible) */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-4">
           <AiOutlineShoppingCart className="text-2xl text-black cursor-pointer hover:text-gray-900" />
-          <button className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <button className="px-8 py-1 bg-black text-white rounded">
             SIGN
           </button>
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-black focus:outline-none"
@@ -65,16 +65,16 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="flex flex-col items-center p-4 space-y-4">
-            <NavLink to="/" className="text-blackhover:text-gray-900">
+            <NavLink to="/" className="text-black hover:text-gray-900">
               Home
             </NavLink>
-            <NavLink to="/products" className="text-blackhover:text-gray-900">
+            <NavLink to="/products" className="text-black hover:text-gray-900">
               Products
             </NavLink>
-            <NavLink to="/about" className="text-blackhover:text-gray-900">
+            <NavLink to="/about" className="text-black hover:text-gray-900">
               About
             </NavLink>
-            <NavLink to="/contact" className="text-blackhover:text-gray-900">
+            <NavLink to="/contact" className="text-black hover:text-gray-900">
               Contact
             </NavLink>
           </div>
