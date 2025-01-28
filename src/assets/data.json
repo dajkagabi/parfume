@@ -12,7 +12,7 @@
     "id": 2,
     "name": "Dior Sauvage",
     "description": "A fresh and spicy scent featuring Calabrian bergamot, Sichuan pepper, and ambroxan.",
-    "category": "Fresh Spicy",
+    "category": "Fresh",
     "image": "src/assets/image/sauvages.png",
     "gender": "men",
     "price": 120.00
@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Armani Acqua di Giò",
     "description": "A marine fragrance with notes of sea water, rosemary, and patchouli.",
-    "category": "Aquatic",
+    "category": "Fresh",
     "image": "src/assets/image/armani.png",
     "gender": "men",
     "price": 110.00
@@ -39,7 +39,7 @@
     "id": 5,
     "name": "Yves Saint Laurent Black Opium",
     "description": "A warm and sweet gourmand scent with coffee, vanilla, and white flowers.",
-    "category": "Gourmand",
+    "category": "Oriental",
     "image": "src/assets/image/Yves.png",
     "gender": "women",
     "price": 140.00
@@ -48,7 +48,7 @@
     "id": 6,
     "name": "Calvin Klein Euphoria",
     "description": "An exotic fruity floral fragrance with pomegranate, orchid, and mahogany.",
-    "category": "Fruity Floral",
+    "category": "Floral",
     "image": "src/assets/image/clavin.png",
     "gender": "women",
     "price": 90.00
@@ -57,7 +57,7 @@
     "id": 7,
     "name": "Paco Rabanne 1 Million",
     "description": "A spicy leather scent with notes of cinnamon, rose, and amber.",
-    "category": "Spicy Leather",
+    "category": "Woody",
     "image": "src/assets/image/paco.png",
     "gender": "men",
     "price": 125.00
@@ -66,7 +66,7 @@
     "id": 8,
     "name": "Versace Bright Crystal",
     "description": "A fresh floral fragrance with yuzu, peony, and musk.",
-    "category": "Fresh Floral",
+    "category": "Fresh",
     "image": "src/assets/image/ver.png",
     "gender": "women",
     "price": 95.00
@@ -75,7 +75,7 @@
     "id": 9,
     "name": "Tom Ford Black Orchid",
     "description": "A luxurious and sensual fragrance with black truffle, black orchid, and patchouli.",
-    "category": "Oriental Floral",
+    "category": "Oriental",
     "image": "src/assets/image/tom.png",
     "gender": "unisex",
     "price": 160.00
@@ -84,7 +84,7 @@
     "id": 10,
     "name": "Jo Malone London Lime Basil & Mandarin",
     "description": "A citrus aromatic scent with lime, basil, and white thyme.",
-    "category": "Citrus Aromatic",
+    "category": "Fresh",
     "image": "src/assets/image/jo.png",
     "gender": "unisex",
     "price": 100.00

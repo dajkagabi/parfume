@@ -5,6 +5,8 @@ import data from '../../assets/data.json';
 const ParfumeList = () => {
   const [parfumes, setParfumes] = useState([]);
   const [cart, setCart] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState('All');
+  const [genderFilter, setGenderFilter] = useState('All');
 
   useEffect(() => {
     setParfumes(data);
@@ -17,6 +19,11 @@ const ParfumeList = () => {
   const removeFromCart = (id) => {
     setCart(cart.filter(parfume => parfume.id !== id));
   };
+
+  const filteredParfumes = parfumes.filter(parfume => {
+    return (categoryFilter === 'All' || parfume.category === categoryFilter) &&
+           (genderFilter === 'All' || parfume.gender === genderFilter);
+  });
 
   const ProductCard = ({ parfume, onClick, buttonLabel, buttonStyle }) => (
     <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 duration-200">
@@ -56,8 +63,35 @@ const ParfumeList = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-semibold mb-6 text-center">Parfume List</h1>
+      <div className="mb-6 text-center">
+        <label htmlFor="categoryFilter" className="mr-2">Filter by category:</label>
+        <select
+          id="categoryFilter"
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value)}
+          className="px-4 py-2 border rounded bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="All">All</option>
+          <option value="Floral">Floral</option>
+          <option value="Woody">Woody</option>
+          <option value="Fresh">Fresh</option>
+          <option value="Oriental">Oriental</option>
+        </select>
+        <label htmlFor="genderFilter" className="ml-4 mr-2">Filter by gender:</label>
+        <select
+          id="genderFilter"
+          value={genderFilter}
+          onChange={(e) => setGenderFilter(e.target.value)}
+          className="px-4 py-2 border rounded bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="All">All</option>
+          <option value="women">Women</option>
+          <option value="men">Men</option>
+          <option value="unisex">Unisex</option>
+        </select>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {parfumes.map(parfume => (
+        {filteredParfumes.map(parfume => (
           <ProductCard
             key={parfume.id}
             parfume={parfume}
