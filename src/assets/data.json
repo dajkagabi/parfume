@@ -88,5 +88,95 @@
     "image": "src/assets/image/jo.png",
     "gender": "unisex",
     "price": 100.00
+  },
+  {
+    "id": 11,
+    "name": "Giorgio Armani My Way",
+    "description": "A bright floral fragrance with bergamot, orange blossom, and vanilla.",
+    "category": "Floral",
+    "image": "src/assets/image/myway.png",
+    "gender": "women",
+    "price": 135.00
+  },
+  {
+    "id": 12,
+    "name": "Jean Paul Gaultier Le Male",
+    "description": "A bold, spicy scent with mint, lavender, and vanilla.",
+    "category": "Oriental",
+    "image": "src/assets/image/Jean.jpg",
+    "gender": "men",
+    "price": 110.00
+  },
+  {
+    "id": 13,
+    "name": "Lancome La Vie Est Belle",
+    "description": "A sweet and floral fragrance with iris, praline, and vanilla.",
+    "category": "Floral",
+    "image": "src/assets/image/La.jpg",
+    "gender": "women",
+    "price": 145.00
+  },
+  {
+    "id": 14,
+    "name": "Bvlgari Man in Black",
+    "description": "A bold and intense scent with rum, leather, and tonka bean.",
+    "category": "Woody",
+    "image": "src/assets/image/Bvlg.jpg",
+    "gender": "men",
+    "price": 125.00
+  },
+  {
+    "id": 15,
+    "name": "Hermès Terre d'Hermès",
+    "description": "A woody spicy fragrance with notes of orange, pepper, and vetiver.",
+    "category": "Woody",
+    "image": "src/assets/image/Ter.jpg",
+    "gender": "men",
+    "price": 130.00
+  },
+  {
+    "id": 16,
+    "name": "Dolce & Gabbana Light Blue",
+    "description": "A fresh citrus fragrance with Sicilian lemon, apple, and cedarwood.",
+    "category": "Fresh",
+    "image": "src/assets/image/Dolce.jpg",
+    "gender": "women",
+    "price": 110.00
+  },
+  {
+    "id": 17,
+    "name": "Creed Aventus",
+    "description": "A powerful and sophisticated scent with pineapple, birch, and musk.",
+    "category": "Woody",
+    "image": "src/assets/image/Creed.png",
+    "gender": "men",
+    "price": 300.00
+  },
+  {
+    "id": 18,
+    "name": "Mugler Alien",
+    "description": "A mysterious and enchanting fragrance with jasmine, amber, and woodsy notes.",
+    "category": "Oriental",
+    "image": "src/assets/image/Mug.png",
+    "gender": "women",
+    "price": 140.00
+  },
+  {
+    "id": 19,
+    "name": "Byredo Gypsy Water",
+    "description": "A woody aromatic fragrance with bergamot, juniper berries, and sandalwood.",
+    "category": "Woody",
+    "image": "src/assets/image/water.png",
+    "gender": "unisex",
+    "price": 180.00
+  },
+  {
+    "id": 20,
+    "name": "Maison Francis Kurkdjian Baccarat Rouge 540",
+    "description": "A luxurious and sophisticated scent with saffron, jasmine, and ambergris.",
+    "category": "Oriental",
+    "image": "src/assets/image/bac.png",
+    "gender": "unisex",
+    "price": 320.00
   }
 ]
