@@ -1,16 +1,22 @@
 import { useState, useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-import { CartContext } from "../CartContext/CartContext"; 
+import { CartContext } from "../CartContext/CartContext";
+import Modal from '../Modal/Modal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart } = useContext(CartContext); // Use CartContext to get cart items
+  // Állapot a modalhoz
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const { cart } = useContext(CartContext);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between p-1.5 max-w-4xl">
-        {/* Logo  */}
+        {/* Logo */}
         <div className="flex items-center">
           <NavLink to="/">
             <img src="src/assets/logo.png" alt="Logo" className="h-12" />
@@ -45,7 +51,10 @@ const Navbar = () => {
               )}
             </NavLink>
           </div>
-          <button className="px-8 py-1 bg-black text-white rounded">
+          <button
+            onClick={openModal} // Modal megnyitása
+            className="px-8 py-1 bg-black text-white rounded"
+          >
             SIGN
           </button>
           <div className="md:hidden flex items-center">
@@ -91,6 +100,9 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} closeModal={closeModal} />
     </nav>
   );
 };
