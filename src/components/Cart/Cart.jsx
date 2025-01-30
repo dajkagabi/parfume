@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import { CartContext } from "../CartContext/CartContext";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext/CartContext";
 
 const Cart = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
@@ -24,98 +23,68 @@ const Cart = () => {
     return total + parfume.price * parfume.quantity;
   }, 0);
 
-  // Szállítási díj
-  const shippingFee = 11.05;
-
-  // Végösszeg számítása
-  const finalAmount = totalAmount + shippingFee;
+ 
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-semibold mb-6 text-center">Cart</h1>
-      <div className="space-y-4">
-        {cart.map((parfume) => (
-          <div
-            key={parfume.id}
-            className="flex items-center justify-between bg-white border border-gray-200 rounded-lg shadow-md p-4"
-          >
-            <img
-              src={parfume.image}
-              alt={parfume.name}
-              className="h-20 w-20 object-contain"
-            />
-            <div className="flex-1 ml-4">
-              <h2 className="text-lg font-semibold text-gray-800">
-                {parfume.name}
-              </h2>
-              <p className="text-sm text-gray-600">{parfume.description}</p>
-              <p className="text-lg text-gray-800 font-bold mt-2">
-                €{parfume.price.toFixed(2)}
-              </p>
-            </div>
-            <div className="flex items-center space-x-2">
-              {/* Csökkentés rész */}
-              <button
-                onClick={() => decreaseQuantity(parfume.id)}
-                className="px-2 py-1 bg-red-500 text-white rounded"
-              >
-                -
-              </button>
-              <span>{parfume.quantity}</span>
-              {/* Növelés rész */}
-              <button
-                onClick={() => increaseQuantity(parfume)}
-                className="px-2 py-1 bg-blue-500 text-white rounded"
-              >
-                +
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-8 p-4 bg-white border border-gray-200 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-gray-800">Total Amount</h2>
-        <p className="text-lg text-gray-800 font-bold">
-          €{totalAmount.toFixed(2)}
-        </p>
-        <br />
-        
-        <h2 className="text-2xl font-semibold text-gray-800">Shipping Fee</h2>
-        <p className="text-lg text-gray-800 font-bold">
-          €{shippingFee.toFixed(2)}
-        </p>
-        <br />
-        <h2 className="text-2xl font-semibold text-gray-800">Final Amount</h2>
-        <p className="text-lg text-gray-800 font-bold">
-          €{finalAmount.toFixed(2)}
-        </p>
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">Your Cart</h1>
 
-        <Link 
-          to="/checkout" 
-          className="block mt-4 bg-blue-600 text-white text-center py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          Proceed to Checkout
-        </Link>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          {cart.map((parfume) => (
+            <div key={parfume.id} className="flex items-start border-b border-gray-200 py-4">
+              <img 
+                src={parfume.image} 
+                alt={parfume.name} 
+                className="w-20 h-20 object-contain mr-4"
+              />
+              <div className="flex-1">
+                <h3 className="font-medium text-gray-900">{parfume.name}</h3>
+                <p className="text-sm text-gray-600 line-clamp-2 mt-1">
+                  {parfume.description}
+                </p>
+                <p className="text-lg font-bold text-gray-900 mt-2">
+                  €{parfume.price.toFixed(2)}
+                </p>
+                <div className="flex items-center space-x-2 mt-2">
+                  <button
+                    onClick={() => decreaseQuantity(parfume.id)}
+                    className="px-2 py-1 bg-red-500 text-white rounded"
+                  >
+                    -
+                  </button>
+                  <span>{parfume.quantity}</span>
+                  <button
+                    onClick={() => increaseQuantity(parfume)}
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 p-4 bg-white border border-gray-200 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-gray-800">Total Amount</h2>
+          <p className="text-lg text-gray-800 font-bold">
+            €{totalAmount.toFixed(2)}
+          </p>
+          <br />
+          
+          
+
+          <Link 
+            to="/checkout" 
+            className="block mt-4 bg-blue-600 text-white text-center py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Proceed to Checkout
+          </Link>
+        </div>
       </div>
     </div>
   );
-};
-
-Cart.propTypes = {
-  cart: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      gender: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-  addToCart: PropTypes.func.isRequired,
-  removeFromCart: PropTypes.func.isRequired,
 };
 
 export default Cart;

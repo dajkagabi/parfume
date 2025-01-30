@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../CartContext/CartContext";
 
 const Checkout = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
   const navigate = useNavigate();
+  const [shippingAddress, setShippingAddress] = useState("");
 
   // Mennyiség növelése
   const increaseQuantity = (parfume) => {
@@ -23,6 +24,20 @@ const Checkout = () => {
   const totalAmount = cart.reduce((total, parfume) => {
     return total + parfume.price * parfume.quantity;
   }, 0);
+
+  // Szállítási díj
+  const shippingFee = 11.05;
+
+  // Végösszeg számítása
+  const finalAmount = totalAmount + shippingFee;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Itt kezelheti a szállítási címet és a fizetési adatokat
+    console.log("Shipping Address:", shippingAddress);
+    // További logika a fizetés kezeléséhez
+    // Például elküldheti az adatokat egy szerverre
+  };
     
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -73,7 +88,7 @@ const Checkout = () => {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-6">Payment Details</h2>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Card Number
@@ -119,11 +134,32 @@ const Checkout = () => {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Shipping Address
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="123 Main St, City, Country"
+                  value={shippingAddress}
+                  onChange={(e) => setShippingAddress(e.target.value)}
+                />
+              </div>
+
               {/* Összegzés */}
               <div className="p-4 bg-gray-100 rounded-lg">
                 <h2 className="text-xl font-semibold text-gray-800">Total Amount</h2>
                 <p className="text-lg text-gray-800 font-bold">
                   €{totalAmount.toFixed(2)}
+                </p>
+                <h2 className="text-xl font-semibold text-gray-800">Shipping Fee</h2>
+                <p className="text-lg text-gray-800 font-bold">
+                  €{shippingFee.toFixed(2)}
+                </p>
+                <h2 className="text-xl font-semibold text-gray-800">Final Amount</h2>
+                <p className="text-lg text-gray-800 font-bold">
+                  €{finalAmount.toFixed(2)}
                 </p>
               </div>
 
