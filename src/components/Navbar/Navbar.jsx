@@ -6,17 +6,17 @@ import Modal from '../Modal/Modal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { cart } = useContext(CartContext);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <nav className="bg-white shadow-md h-16"> 
-      <div className="container mx-auto flex items-center justify-center p-1.5 max-w-4xl relative h-full">
-        {/* Logo */}
-        <div className="absolute left-0">
+    <nav className="bg-white shadow-md">
+      <div className="container mx-auto flex items-center justify-between p-1.5 max-w-4xl">
+        {/* Logo  */}
+        <div className="flex items-center">
           <NavLink to="/">
             <img src="src/assets/logo.png" alt="Logo" className="h-12" />
           </NavLink>
@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
 
         {/* Cart icon, sign button, and hamburger icon (always visible) */}
-        <div className="absolute right-0 flex items-center space-x-4">
+        <div className="flex items-center space-x-4">
           <div className="relative">
             <NavLink to="/cart">
               <AiOutlineShoppingCart className="text-2xl text-black cursor-pointer hover:text-gray-900" />
