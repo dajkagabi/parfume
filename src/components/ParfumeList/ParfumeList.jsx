@@ -3,35 +3,31 @@ import PropTypes from 'prop-types';
 import data from '../../assets/data.json';
 import { CartContext } from '../CartContext/CartContext'; 
 
+
 const ParfumeList = () => {
-   {/* állapotkezelés rész,  */}
   const [parfumes, setParfumes] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [genderFilter, setGenderFilter] = useState('All');
   const { addToCart } = useContext(CartContext); 
 
-   {/* adatok betöltése, [] egyszer fut le */}
   useEffect(() => {
     setParfumes(data);
   }, []);
 
-    {/* szűrés, a kategória és nem szerint */}
-    {/*később majd lehet bővíteni pl. évszak szerint */}
   const filteredParfumes = parfumes.filter(parfume => {
     return (categoryFilter === 'All' || parfume.category === categoryFilter) &&
            (genderFilter === 'All' || parfume.gender === genderFilter);
   });
 
-  {/*Kártya adatok megjelenítése */}
   const ProductCard = ({ parfume, onClick, buttonLabel, buttonStyle }) => (
     <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 duration-200 h-full flex flex-col">
       <div className="w-full h-24 sm:h-32 relative"> 
-  <img 
-    src={parfume.image} 
-    alt={parfume.name} 
-    className="w-full h-full object-contain p-1 sm:p-2" 
-  />
-</div>
+        <img 
+          src={parfume.image} 
+          alt={parfume.name} 
+          className="w-full h-full object-contain p-1 sm:p-2 " 
+        />
+      </div>
       <div className="p-4 flex flex-col flex-grow">
         <h2 className="text-lg font-semibold text-gray-800 truncate">{parfume.name}</h2>
         <p className="text-sm text-gray-600 mt-2 line-clamp-3 flex-grow">
@@ -53,9 +49,7 @@ const ParfumeList = () => {
       </div>
     </div>
   );
-     
 
-  {/* */}
   ProductCard.propTypes = {
     parfume: PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -71,7 +65,6 @@ const ParfumeList = () => {
     buttonStyle: PropTypes.string.isRequired,
   };
 
-  {/* Szűrő UI */}
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-semibold mb-6 text-center">Parfume List</h1>
@@ -107,7 +100,6 @@ const ParfumeList = () => {
         </div>
       </div>
 
-      {/*MAP függvény:  */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {filteredParfumes.map(parfume => (
           <ProductCard
@@ -119,6 +111,8 @@ const ParfumeList = () => {
           />
         ))}
       </div>
+
+      
     </div>
   );
 };

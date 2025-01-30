@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
@@ -69,6 +70,14 @@ const Cart = () => {
         <p className="text-lg text-gray-800 font-bold">
           €{totalAmount.toFixed(2)}
         </p>
+
+        <Link 
+    to="/checkout" 
+    className="block mt-4 bg-blue-600 text-white text-center py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+  >
+    Proceed to Checkout
+  </Link>
+
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import ParfumeProducts from "./components/ParfumeProduct/ParfumeProducts";
 import Cart from "./components/Cart/Cart";
 import PrivacyPolicy from "./components/Privacy-Policy/Privacy-Policy";
 import { CartProvider } from "./components/CartContext/CartContext"; 
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<ParfumeProducts />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
