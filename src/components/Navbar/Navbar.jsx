@@ -6,7 +6,6 @@ import Modal from '../Modal/Modal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // Állapot a modalhoz
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const { cart } = useContext(CartContext);
 
@@ -14,10 +13,10 @@ const Navbar = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between p-1.5 max-w-4xl">
+    <nav className="bg-white shadow-md h-16"> {/* Itt adtam hozzá a h-16 osztályt */}
+      <div className="container mx-auto flex items-center justify-center p-1.5 max-w-4xl relative h-full">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="absolute left-0">
           <NavLink to="/">
             <img src="src/assets/logo.png" alt="Logo" className="h-12" />
           </NavLink>
@@ -40,7 +39,7 @@ const Navbar = () => {
         </div>
 
         {/* Cart icon, sign button, and hamburger icon (always visible) */}
-        <div className="flex items-center space-x-4">
+        <div className="absolute right-0 flex items-center space-x-4">
           <div className="relative">
             <NavLink to="/cart">
               <AiOutlineShoppingCart className="text-2xl text-black cursor-pointer hover:text-gray-900" />
@@ -52,7 +51,7 @@ const Navbar = () => {
             </NavLink>
           </div>
           <button
-            onClick={openModal} // Modal megnyitása
+            onClick={openModal}
             className="px-8 py-1 bg-black text-white rounded cursor-pointer"
           >
             SIGN
