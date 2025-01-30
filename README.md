@@ -22,6 +22,7 @@ Lépj be a projekt mappájába:
 
 Telepítsd a függőségeket:
 - `npm install`
+
 Indítsd el a fejlesztői szervert:
 - `npm run dev`
 
