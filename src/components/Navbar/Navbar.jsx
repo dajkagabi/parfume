@@ -13,7 +13,7 @@ const Navbar = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <nav className="bg-white shadow-md h-16"> {/* Itt adtam hozzá a h-16 osztályt */}
+    <nav className="bg-white shadow-md h-16"> 
       <div className="container mx-auto flex items-center justify-center p-1.5 max-w-4xl relative h-full">
         {/* Logo */}
         <div className="absolute left-0">
