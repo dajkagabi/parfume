@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../CartContext/CartContext"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart } = useContext(CartContext); // Use CartContext to get cart items
 
   return (
     <nav className="bg-white shadow-md">
@@ -33,7 +35,16 @@ const Navbar = () => {
 
         {/* Cart icon, sign button, and hamburger icon (always visible) */}
         <div className="flex items-center space-x-4">
-          <AiOutlineShoppingCart className="text-2xl text-black cursor-pointer hover:text-gray-900" />
+          <div className="relative">
+            <NavLink to="/cart">
+              <AiOutlineShoppingCart className="text-2xl text-black cursor-pointer hover:text-gray-900" />
+              {cart.length > 0 && (
+                <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+                  {cart.length}
+                </span>
+              )}
+            </NavLink>
+          </div>
           <button className="px-8 py-1 bg-black text-white rounded">
             SIGN
           </button>
