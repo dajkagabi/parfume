@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../CartContext/CartContext";
-
 
 const Checkout = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   // Mennyiség növelése
   const increaseQuantity = (parfume) => {
@@ -22,7 +23,6 @@ const Checkout = () => {
   const totalAmount = cart.reduce((total, parfume) => {
     return total + parfume.price * parfume.quantity;
   }, 0);
-    
     
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -138,6 +138,7 @@ const Checkout = () => {
                 <button
                   type="button"
                   className="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors"
+                  onClick={() => navigate('/cart')}
                 >
                   Back to Shopping
                 </button>

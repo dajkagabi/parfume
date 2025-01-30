@@ -6,21 +6,29 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
-  {/* mennyiség növelés rész */}
+  // Mennyiség növelés rész
   const increaseQuantity = (parfume) => {
     addToCart(parfume);
   };
- {/* mennyiség csökkentés rész */}
+
+  // Mennyiség csökkentés rész
   const decreaseQuantity = (id) => {
     const item = cart.find((parfume) => parfume.id === id);
     if (item) {
       removeFromCart(id);
     }
   };
-   {/* összegrész */}
+
+  // Összeg számítása
   const totalAmount = cart.reduce((total, parfume) => {
     return total + parfume.price * parfume.quantity;
   }, 0);
+
+  // Szállítási díj
+  const shippingFee = 11.05;
+
+  // Végösszeg számítása
+  const finalAmount = totalAmount + shippingFee;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -46,7 +54,7 @@ const Cart = () => {
               </p>
             </div>
             <div className="flex items-center space-x-2">
-              {/*csökkentés rész */}
+              {/* Csökkentés rész */}
               <button
                 onClick={() => decreaseQuantity(parfume.id)}
                 className="px-2 py-1 bg-red-500 text-white rounded"
@@ -54,7 +62,7 @@ const Cart = () => {
                 -
               </button>
               <span>{parfume.quantity}</span>
-              {/*növelés  rész */}
+              {/* Növelés rész */}
               <button
                 onClick={() => increaseQuantity(parfume)}
                 className="px-2 py-1 bg-blue-500 text-white rounded"
@@ -70,14 +78,24 @@ const Cart = () => {
         <p className="text-lg text-gray-800 font-bold">
           €{totalAmount.toFixed(2)}
         </p>
+        <br />
+        
+        <h2 className="text-2xl font-semibold text-gray-800">Shipping Fee</h2>
+        <p className="text-lg text-gray-800 font-bold">
+          €{shippingFee.toFixed(2)}
+        </p>
+        <br />
+        <h2 className="text-2xl font-semibold text-gray-800">Final Amount</h2>
+        <p className="text-lg text-gray-800 font-bold">
+          €{finalAmount.toFixed(2)}
+        </p>
 
         <Link 
-    to="/checkout" 
-    className="block mt-4 bg-blue-600 text-white text-center py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-  >
-    Proceed to Checkout
-  </Link>
-
+          to="/checkout" 
+          className="block mt-4 bg-blue-600 text-white text-center py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Proceed to Checkout
+        </Link>
       </div>
     </div>
   );

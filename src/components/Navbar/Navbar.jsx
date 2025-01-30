@@ -53,7 +53,7 @@ const Navbar = () => {
           </div>
           <button
             onClick={openModal} // Modal megnyitása
-            className="px-8 py-1 bg-black text-white rounded"
+            className="px-8 py-1 bg-black text-white rounded cursor-pointer"
           >
             SIGN
           </button>
