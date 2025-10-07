@@ -32,7 +32,7 @@ const Home = () => {
         </button>
       </div>
 
-      {/* Háttér árnyékolása olvashatóság miatt */}
+ 
       <div className="absolute top-0 left-0 w-full h-full "></div>
     </div>
   );
